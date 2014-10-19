@@ -14,6 +14,7 @@ Download the jre from oracle:
     sudo apt-get install java-package
     
     make-jpkg jre-7u71-linux-x64.tar.gz
+
     
 Answer the questions.
 
