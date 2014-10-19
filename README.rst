@@ -7,16 +7,18 @@ To make the deb:
 
 Download the jre from oracle:
 
-    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jre-7u71-linux-x64.tar.gz
-
 .. code-block:: bash
+
+    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jre-7u71-linux-x64.tar.gz
     
     sudo apt-get install java-package
     
     make-jpkg jre-7u71-linux-x64.tar.gz
     
     Answer the questions.
-    
+
+.. code-block:: bash
+        
     cp oracle-j2sdk......deb /srv/salt/server_jre.deb
 
 
