@@ -15,7 +15,7 @@ Download the jre from oracle:
     
     make-jpkg jre-7u71-linux-x64.tar.gz
     
-    Answer the questions.
+Answer the questions.
 
 .. code-block:: bash
         
