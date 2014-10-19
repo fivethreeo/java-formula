@@ -1,9 +1,24 @@
 java
 ====
 
-This state installs java to /opt and sets up the alternatives system to point
-to the binaries under /opt. To use this state the java tarball(s) must be
-downloaded manually and placed in the files directory.
+This state installs java to from a premade make-jpkg deb.
+
+To make the deb:
+
+Download the jre from oracle:
+
+    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jre-7u71-linux-x64.tar.gz
+
+.. code-block:: bash
+    
+    sudo apt-get install java-package
+    
+    make-jpkg jre-7u71-linux-x64.tar.gz
+    
+    Answer the questions.
+    
+    cp oracle-j2sdk......deb /srv/salt/server_jre.deb
+
 
 Available states
 ================
@@ -14,26 +29,16 @@ Available states
 ``java.server_jre``
 -------------------
 
-Install the Oracle Java server jre, the tarball must be named `server_jre.tgz`
-and placed in the files directory.
+Install the Oracle Java server jre, the deb make from make-jpg must be in the files directory.
 
-``java.server_jdk``
--------------------
-
-Install the Oracle Java jdk
 
 Example Pillar
 ==============
 
-You can specify the ``source``, ``source_hash``, and ``home`` in your `pillar` file, like so:
+You can specify the ``source``, in your `pillar` file, like so:
 
 .. code-block:: yaml
 
     java:
       jre:
-        source: http://java.com...
-        source_hash: sha1=SHA1OFDOWNLOAD
-        home: /usr/local
-      jdk:
-        source: http://java.com...
-        source_hash: sha1=SHA1OFDOWNLOAD
+        source: salt://server_jre.deb
