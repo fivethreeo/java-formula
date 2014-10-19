@@ -3,4 +3,5 @@
 
 server_jre:
   pkg.installed:
-    - source: {{ jre['source'] }}
+    - sources:
+      - oracle-java7-jre: {{ jre['source'] }}
